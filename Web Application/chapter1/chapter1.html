@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Chapter 1</title>
+<!-- #EndEditable -->
+<link href="../styles/style3.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<style type="text/css">
+.auto-style3 {
+	font-size: xx-large;
+	font-family: "Lucida Console";
+}
+.auto-style4 {
+	text-align: center;
+}
+.auto-style5 {
+	text-decoration: underline;
+}
+table.MsoTableGrid
+	{border:solid windowtext 1.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	}
+.auto-style6 {
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+	font-size: small;
+}
+.auto-style7 {
+	text-align: center;
+	font-size: x-large;
+	text-decoration: underline;
+}
+.auto-style8 {
+	color: red;
+}
+.auto-style9 {
+	text-decoration: underline;
+	text-align: center;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "Which variable is correct in python?", "“MyName”", "My=Name", "MyNaMe", "C" ],
+	[ "Choose the correct answer:", "str(3)", "int(5)", "float(9)", "B" ],
+	[ "What is the difference between tuple and list?", "Tuple (“A”, “B”) list [“A”, “B”]", "Tuple {“A”, “B”} list < “A”, “B” >", "Tuple [“A”, “B”] list (“A”, “B”)", "C" ],
+	[ "What is the output of the following:<br />a=float(3)<br />print(a)", "3", "0.3", "3.0", "C" ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Quiz Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead" class="auto-style1">
+		<img alt="" height="71" src="../images/logo.jpg" width="173" /><p class="auto-style4">
+		<span class="auto-style3">LEARN IT</span><br />
+		Coding and Development&nbsp; </p>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+	<div id="navigation">
+		<ul style="width: 100%; height: 31px">
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../home.html">Home</a></li>
+			<li><a href="../chapter1/chapter1.html">Chapter 1</a></li>
+			<li><a href="../chapter2/chapter2.html">Chapter 2</a></li>
+			<li><a href="../chapter3/chapter3.html">Chapter 3</a></li>
+			<li><a href="../chapter4/chapter4.html">Chapter 4</a></li>
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../test/test.html">Test</a></li>
+			<li><a href="mailto:info@learnit.com">Contact us</a></li>
+			
+		</ul>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Page Content -->
+	<div id="page_content">
+		<!-- Begin Left Column -->
+		<div id="column_l" style="left: 0px; top: 0px; width: 585px;">
+			<h2 class="auto-style7">CHAPTER 1</h2>
+			<p>In this chapter we will cover variables, data types and input/output.</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style5">Variables</h3>
+			<p>Variables are basically containers for storing data values. These variables can be anything! They can consist of 1 or more alpha-numeric (A-z and 0-9) and or underscores. Although variables cannot start with a digit. </p>
+			<p>Variables are case sensitive, for example the variable NUM is not the same as num and is not the same as Num and so on for each variation of num. </p>
+			<p>A variable will be attached to data with an equals sign (=).</p>
+			<h4 class="auto-style5">Example:</h4>
+			<p>Num = 24<br />
+			myName = “Andre”</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style5">Data Types</h3>
+			<p>A data type essentially is what gets stored into your variable. Variables are containers for storing data value.</p>
+			<p>There are 3 fundamental data types.</p>
+			<p><strong>Integer (int)</strong> – an integer is any whole number that can be both positive and negative.<br />
+			<strong>Float (float)</strong> – a float will be numbers that have remainders such as 5.5, 4.67, 3.123…etc.<br />
+			<strong>String (str) </strong>– a string is usually used to represent text but can also represent numbers. When attaching a string to a variable it must be place in inverted commas like shown in this example: myName = “Andre”</p>
+			<p>Here it a table of some more important variables you will need to 
+			know:</p>
+			<p>
+			<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid">
+				<tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191">
+					<p class="MsoNormal"><b>
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Example<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:142.15pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal"><b>
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Data Type<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:165.65pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal"><b>
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Define 
+					example<o:p></o:p></span></b></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:1">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 3<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">int 
+					(integer)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					int(3)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:2">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					”Andre”<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Str 
+					(string)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					str(“Andre”)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:3">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 3.5<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">float 
+					(float) <o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					float(20.5)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:4">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 3j <o:p></o:p>
+					</span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">complex 
+					(complex)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					complex(3j)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:5">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a =<span style="mso-spacerun:yes">&nbsp;
+					</span>[“blue”,”red”,”green”]<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">list 
+					(list)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					list((“blue”,”red”,”green”))<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:6">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					(“blue”,”red”,”green”)<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">tuple 
+					(tuple)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					tuple((“blue”,”red”, “green”))<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:7">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					range(6)<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">range<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					range(6)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:8">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					{“name”, “Andre”, “Age”}<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">dict 
+					(Dictionary)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					dict(name=<span style="mso-spacerun:yes">&nbsp; </span>
+					“Andre”, age = 22)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:9">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					{“blue”, “green”, “red”}<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Set (set)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					set((“blue”, “green”, “red”))<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:10">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = True<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">bool 
+					(Boolean)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = 
+					bool(3)<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:11;mso-yfti-lastrow:yes">
+					<td style="width:143.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="191" class="auto-style6">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = b 
+					“Hello”<o:p></o:p></span></p>
+					</td>
+					<td style="width:142.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="190">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Bytes 
+					(bytes)<o:p></o:p></span></p>
+					</td>
+					<td style="width:165.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="221">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">a = bytes 
+					(3)<o:p></o:p></span></p>
+					</td>
+				</tr>
+			</table>
+			</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style5">Input/Output</h3>
+			<p>Input allows a user, like you for example, to “input” details. These details will be then processed by the computer and it will then provide you with an output by displaying it for you to see.</p>
+			<p>In order to prompt a user to input information we need to use the input() function.</p>
+			<p>To output the result we need to use the print() function.</p>
+			<h4 class="auto-style5">Example:</h4>
+			<p>myName = input(“What is your name? “)<br />
+			print(“Hello ” + myName)</p>
+			<p><strong>Output<br />
+			</strong>What is your name?  <em><span class="auto-style8">Andre</span>		*your input in italic*</em><br />
+			Hello Andre</p>
+			<p>*notice in the print function when you type the string hello in inverted commas it prints exactly what is typed whereas myName has no inverted commas because it is stated as a variable. If Hello had no inverted commas it will give an error because the computer will think that Hello is variable but it is not stated.*</p>
+			<p>&nbsp;</p>
+			<h1 class="auto-style9">Quiz</h1>
+			<h2 id="test_status"></h2>
+			<div id="test" style="background-color: #C0C0C0"></div>
+			<p>&nbsp;</p>
+			</div>
+		<!-- End Left Column -->
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer" style="width: 616px; height: 51px">
+		<p><a href="../home.html">Home</a> | <a href="../chapter1/chapter1.html">Chapter 1</a> 
+		| <a href="../chapter2/chapter2.html">Chapter 2</a> |
+		<a href="../chapter3/chapter3.html">Chapter 3</a> |
+		<a href="../chapter4/chapter4.html">Chapter 4</a> |
+		<a href="../test/test.html">Test</a> |
+		<a href="mailto:info@learnit.com">Contact us</a></p>
+		<p>Copyright &copy; 2021 Learn IT. All Rights Reserved.</p>
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+</html>

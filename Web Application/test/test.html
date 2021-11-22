@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Exam</title>
+<script language="javascript" type="text/javascript"></script>
+<!-- #EndEditable -->
+<link href="../styles/style3.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<style type="text/css">
+.auto-style3 {
+	font-size: xx-large;
+	font-family: "Lucida Console";
+}
+.auto-style4 {
+	text-align: center;
+}
+.auto-style5 {
+	text-align: center;
+	text-decoration: underline;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "Why are variables useful in a program?", "They use many values in many places.", "They store many values in one name.", "They use the same value in many places.", "C" ],
+	[ "Which is the incorrect string function?", "casefold ()", "append ()", "encode ()", "B" ],
+	[ "There is only one type of numeric data type in python and it is the float?", "False, integer is also a numeric data type.", "True", "False, string is also a numeric data type.", "A" ],
+	[ "List can contain data of different types.", "False, a list can only contain strings.", "False, a list can only contain numeric data types.", "True", "C" ],
+	[ "How many times can a while statement loop before Python crashes?", "3 times", "There is no limit.", "1000 times", "B" ],
+	[ "The correct way to declare a variable is:", "String myName = “myValue”", "str myName = “myValue”", "myName = “myValue”", "C" ],
+	[ "Which line of code is invalid? <br /> 1 : l = [3, 2, 1] <br />	2 : print (l [1]) <br />	3 : print (l [2]) <br />	4 : print (l [3]) ", "line 4", "line 2", "line 3", "A" ],
+	[ "Identify what is incorrect in this code.<br /> for num in [5, 4, 3, 2, 1]<br /> &nbsp; print (num + “!”)", "“in” should be replaced with “of”", "num is not a string.", "the colon (:) needs to be removed", "B" ],
+	[ "How many times will this program print “Learn It”?<br />x = [‘c’, ‘b’, ‘a’]<br />for y in x:<br /> &nbsp; print (“Learn It”)", "2", "3", "1", "B" ],
+	[ "What are the three groups of operators in Python?", "Comparison, Assignment and Arithmetic", "String, integer, and float ", "For loop, If loop and While loop", "A" ],
+	[ "What is the output of this program: <br /> x = “18”<br />y = “22”<br />x = int (y)<br />print (x)", "65", "23", "40", "C" ],
+	[ "What is the output of this program: <br /> x = “_”<br />print (x.join (“Function”))", "F_u_n_c_t_i_o_n", "_F_u_n_c_t_i_o_n_", "Function_", "A" ],
+	[ "What is the correct answer for this program:<br />fast = False<br />slow = 0<br />print (fast == slow)", "False ", "True", "0", "B" ],
+	[ "What is the correct arithmetic operator for the program to output 41.<br />a = 80<br /> b = 2<br /> x = (a___b) ___b<br /> print (x)", "– and +", "+ and /", "/ and *", "B" ],
+	[ "Fill in the blanks using [<, >=, >, <=, ==] for the program to output 2. <br />num = 4<br />while num ___ 1:<br />&nbsp;&nbsp;if num ___ 2:<br />break<br />&nbsp;&nbsp;num -= 1<br />print (num)", ">  and <=", "== and <", "> and <", "A" ],
+	[ "What is the output of the Python code:<br />Str1 = “Incomprehensibilities”<br />print (str1.find (h))<br />print (str1.count (“i”))<br />print (str1.endswith (“e”))", "3&nbsp;&nbsp;	False	&nbsp;&nbsp;4", "True&nbsp;&nbsp;	0&nbsp;&nbsp;	6", "8&nbsp;&nbsp;	5&nbsp;&nbsp; 	False", "C" ],
+	[ "Fill in the blanks using [in, animal, pets, a, range()] to make this program output:<br />Lion<br />Cat<br />Dog<br /><br />a = [“Lion”, “Cat”, “Dog”]<br />for ___ ___ ___:<br />&nbsp;&nbsp;print (animal)", "animal&nbsp;&nbsp;	in&nbsp;&nbsp; a", "pets&nbsp;&nbsp;	in&nbsp;&nbsp; 	animal", "a&nbsp;&nbsp;	in&nbsp;&nbsp;	pets", "A" ],
+	[ "Fill in the blanks using [n ,3 ,s , in] to make this program output “0123”<br />s = “ ”<br />for ___ ___ range (___):<br />&nbsp;&nbsp;s = ___ + str (i)<br />print (s)", "s&nbsp;&nbsp;	in&nbsp;&nbsp;	n<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	3 ", "n&nbsp;&nbsp;	in&nbsp;&nbsp;	3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	s", "3&nbsp;&nbsp;	in&nbsp;&nbsp;	s<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	n", "B" ],
+	[ "What is the arrangement of the following lines of code to output 48.<br />c = a + b<br />b = a * 3<br />print (c)<br />a = 12", "a = 12<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = a * 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c = a + b<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (c)<br />", "b = a * 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c = a + b<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = 12 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (c)<br />", "c = a + b<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a = 12<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b = a * 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (c)", "A" ],
+	[ "What is the arrangement of the following lines of code to output “learn”.<br />s = “ “<br />print (s)<br />l = [‘l’, ‘e’, ‘a’, ‘r’, ‘n’]<br />s += word<br />for word in l:", "print (s)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for word in l:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s = “ ”<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s += word<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbspl = [‘l’, ‘e’, ‘a’, ‘r’, ‘n’]<br />", "l = [‘l’, ‘e’, ‘a’, ‘r’, ‘n’]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for word in l:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s = “ ”<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s += word<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (s)<br />", "l = [‘l’, ‘e’, ‘a’, ‘r’, ‘n’]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s = “ ”<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for word in l:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s += word<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (s)", "C" ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		if(correct >= 10){
+			test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+			_("test_status").innerHTML = "Test Passed";
+			pos = 0;
+			correct = 0;
+			return false;
+		}
+		else{
+			test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+			_("test_status").innerHTML = "Test Failed";
+			pos = 0;
+			correct = 0;
+			return false;
+		}
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead" class="auto-style1">
+		<img alt="" height="71" src="../images/logo.jpg" width="173" /><p class="auto-style4">
+		<span class="auto-style3">LEARN IT</span><br />
+		Coding and Development&nbsp; </p>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+	<div id="navigation">
+		<ul style="width: 100%; height: 31px">
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../home.html">Home</a></li>
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../test/test.html">Test</a></li>
+			<li><a href= "mailto:info@learnit.com">Contact us</a></li>
+			
+		</ul>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Page Content -->
+	<div id="page_content">
+		<!-- Begin Left Column -->
+		<div id="column_l" style="left: 0px; top: 0px; width: 584px;">
+			<h2 class="auto-style5">TEST</h2>
+			<h2 id="test_status"></h2>
+			<div id="test" style="background-color: #C0C0C0"></div>
+			<p>&nbsp;</p>
+
+			
+		</div>
+		<!-- End Left Column -->
+		<!-- Begin Right Column -->
+		<!-- End Right Column --></div>
+	
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer" style="width: 616px; height: 51px">
+		<p><a href="../home.html">Home</a> | 
+		<a href="../test/test.html">Test</a> |
+		<a href="mailto:info@learnit.com">Contact us</a></p>
+		<p>Copyright &copy; 2021 Learn IT. All Rights Reserved.</p>
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+</html>

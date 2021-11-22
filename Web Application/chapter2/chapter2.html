@@ -1,0 +1,2004 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Chapter 2</title>
+<!-- #EndEditable -->
+<link href="../styles/style3.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<style type="text/css">
+.auto-style3 {
+	font-size: xx-large;
+	font-family: "Lucida Console";
+}
+.auto-style4 {
+	text-align: center;
+}
+.auto-style5 {
+	text-decoration: underline;
+}
+table.TableGrid1
+	{border:solid windowtext 1.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	}
+.auto-style6 {
+	text-decoration: underline;
+	text-align: center;
+}
+.auto-style7 {
+	text-align: left;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "What is the output of the following: <br /> str = “My salary is 1000” <br /> print(str.isalnum())", "True", "False", "TypeError","B" ],
+    [ "Select the correct output of the following String operations<br /> str = “my name is Youshlen Nadesan”<br /> print (str.capitalize())", "My Name Is Youshlen Nadesan", "TypeError", "My name is youshlen Nadesan",  "C" ],
+	[ "Which method should be use to convert String “welcome to learn it” to “Welcome To Learn IT”", "capitalize()", "title()", "upper()", "B" ],
+	[ "What is the output of the following:<br /> str1 = “My salary is 800”<br /> str2 = “800”<br /> print(str1.isdigit())<br /> print(str2.isdigit())", "False<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True<br />", "False<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False<br />", "True<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False<br />", "A" ],
+	[ "Select the correct output of the following :<br /> str1 = “my isname isisis youshlenis isis nadesan”<br /> sub = “is”<br /> print(str1.count(sub, 4))", "5", "6", "7", "B" ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Quiz Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead" class="auto-style1">
+		<img alt="" height="71" src="../images/logo.jpg" width="173" /><p class="auto-style4">
+		<span class="auto-style3">LEARN IT</span><br />
+		Coding and Development&nbsp; </p>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+	<div id="navigation">
+		<ul style="width: 100%; height: 31px">
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../home.html">Home</a></li>
+			<li><a href="../chapter1/chapter1.html">Chapter 1</a></li>
+			<li><a href="../chapter2/chapter2.html">Chapter 2</a></li>
+			<li><a href="../chapter3/chapter3.html">Chapter 3</a></li>
+			<li><a href="../chapter4/chapter4.html">Chapter 4</a></li>
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../test/test.html">Test</a></li>
+			<li><a href="mailto:info@learnit.com">Contact us</a></li>
+			
+		</ul>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Page Content -->
+	<div id="page_content" class="auto-style4">
+		<div class="auto-style7">
+		<!-- Begin Left Column -->
+		<div id="column_l" style="left: 0px; top: 0px; width: 585px;">
+			<h2 class="auto-style6">CHAPTER 2</h2>
+			<p>In this chapter you will learn how to manipulate stings and extract information out of them.</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style5">String Functions</h3>
+			<p>Since strings usually consist of text you can manipulate how that text is displayed, for example you ca can make any letter in the string a capital letter or you can make it a lower case letter.</p>
+			<p>You can also extract information such as the string length or how many times a specific character appears within the string.</p>
+			<p>Here is a table of all the functions you can use for strings.</p>
+			<p>
+			<table align="left" border="1" cellpadding="0" cellspacing="0" class="TableGrid1">
+				<tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span style="mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin">Method Name<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:110.4pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span style="mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin">Explanation<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:229.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span style="mso-bidi-font-family:Calibri;
+  mso-bidi-theme-font:minor-latin">Example</span></b><span style="mso-bidi-font-family:
+  Calibri;mso-bidi-theme-font:minor-latin"><o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:1">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					capitalize()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Capitalized the first letter of the string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = “capitalize example”<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.capatilized())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Capitalize example<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:2">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					casefold()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns the string in all lower case<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = “casefold EXAMPLE”<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.casefold())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					casefold example<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:3">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					centre()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns the string in the centre of a string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; x = str1.center(12,"-")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(x)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					---Example----<i style="mso-bidi-font-style:normal"><o:p></o:p></i></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:4">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					count()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns the number of times a value occurs in a string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Hello"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.count("h"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					1<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.count("l"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					2<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.count("o"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					1<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:5">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					encode()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns the encoded version of the string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = “python!”<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print('The string is:', str1)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					The string is: python!<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:6">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					endswith()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True is the string ends with a specific value<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.endswith("x"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.endswith("ple"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:7">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					expandtabs()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: white">
+					Returns a copy of the string where all tab characters are 
+					replaced by one or more spaces</span><span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "1\t2\t3"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					1 2 3<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.expandtabs())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					1 2 3<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:8">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					find()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Searches for a specific value in a string and returns the 
+					position where the value was found <o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.find("E"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					0<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.find("mp"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					3<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:9">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					format()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Formats specific values in a string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print("{} and {}".format("Girl",<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					"Boy"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Girl and Boy<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print("{1} and {0}".format("Girl",<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					"Boy"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Boy and Girl<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print("{first} and<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					{second}".format(first="Girl<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					",second ="Boy"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Girl and Boy<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:10">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					format_map()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Formats specific values in a string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;lunch = {"Food": "Pasta", "Drink": "Wine"}<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print("Lunch: {Food},<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					{Drink}".format_map(lunch))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Lunch: Pasta, Wine<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:11">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					index()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Searches for a specific value in a string and returns the 
+					position where the value was found<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.find("E"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					0<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.find("mp"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					3<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:12">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isalnum()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are 
+					alphanumeric<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.isalnum())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;a = "123"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(a.isalnum())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;b= "$*%!!!"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(a.isalnum())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:13">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isalpha()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are alphabets<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.isalpha())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;b = "$*%!!!12"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(b.isalpha())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:14">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isdecimal()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are decimals<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.isdecimal())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;a = "1.23"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(a.isdecimal())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;b = "$*%!!!"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(b.isdecimal())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;c = "456"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(c.isdecimal())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:15">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isdigit()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are digits<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; d="987"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(d.isdigit())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; b="4.56"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(a.isdigit())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:16">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isidentifier()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if the string is an identifier<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c="456"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.isidentifier())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c="_user_123"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.isidentifier())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c="Python"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.isidentifier())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:17">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					islower()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are lower 
+					case<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.islower())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.islower())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:18">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isnumeric()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are numeric<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; num1="123"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(num1.isnumeric())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="Python"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.isnumeric())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:19">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isprintable()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are printable<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; num1 ="123"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(num1.isprintable())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c ="\t"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.isprintable())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:20">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isspace()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are 
+					whitespaces<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; num1 ="133"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(num1.isspace())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.isspace())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c="\t"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.isspace())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:21">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					istitle()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if the string follows the rules of a title<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; num1 ="133"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(num1.istitle())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.istitle ())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; c="\t"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(c.istitle())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:22">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					isupper()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if all the characters in a string are upper 
+					case<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str2="Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str2.isupper())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1="EXAMPLE"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.isupper())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:23">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					join()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Joins the elements of an iterable to the end of a string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; a ="-"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(a.join("123"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					1-2-3<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; a="**"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(a.join("Example Code<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					E**x**a**m**p**l**e** **C**o**d**e<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:24">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					ljust()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a left justified version of the string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; a="Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; b = a.ljust(12, "_")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(b)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example_____<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:25">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					lower()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Converts the string to lower case<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; a = "Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(a.lower())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					example<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:26">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					lstrip()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a left trim version of the string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; a = " Example "<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(a.lstrip(), "!")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example<span style="mso-spacerun:yes">&nbsp; </span>! <o:p></o:p>
+					</span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:27">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					maketrans()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a translation table to be used in translations<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; frm = "SecretCode"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; to = "4203040540"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; trans_table = str.maketrans(frm, to)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; sec_code = "Secret Code".translate(trans_table)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(sec_code)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					400304 0540<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:28">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					partition()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a tuple where the string id divided into 3 parts<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example-Code "<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.partition("-"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					('Example', '-', 'Code')<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.partition("."))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					('Example-Code', '', '')<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:29">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					replace()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a string where a specified value is replaced with 
+					another a specified value<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = “Example 1. Example 2. Example 3.”<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.replace(“Example”,<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					"Code"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Code 1. Code 2. Code 3.<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.replace("Example",<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					"Code", 2))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Code 1. Code 2. Example 3.<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:30">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rfind()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Searches for a specific value in a string and returns the 
+					last position where the value was found<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example-Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rfind("C"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					8<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rfind("-"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					7<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:31">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rindex()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Searches for a specific value in a string and returns the 
+					last position where the value was found<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example-Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rfind("C"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					8<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rfind("-"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					7<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:32">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rjust()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns the right justified version of the string <o:p></o:p>
+					</span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; mystr1 = str1.rjust(20,"-")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(mystr1)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					--------Example Code<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:33">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rpartition()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a tuple where the string id divided into 3 parts<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.rpartition("."))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					('',<span style="mso-spacerun:yes">&nbsp; </span>'', 
+					'Example Code)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.rpartition(" "))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					('Example', ' ', 'Code')<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:34">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rsplit()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Splits the string at the specified separator and returns a 
+					list<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rsplit())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					['Example', 'Code']<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example-Code-Example"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.rsplit(sep="-",maxsplit=1))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					['Example-Code', 'Example']<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:35">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					rstrip()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a right trim version of the string <o:p></o:p>
+					</span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rstrip(),"!")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example Code !<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.rstrip(),"_")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					----Example Code---- _<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:36">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					split()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Splits the string at the specified separator and returns a 
+					list<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Hello Python"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.split())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					['Hello', 'Python']<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:37">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					splitlines()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Splits the string at line breaks and returns a list<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1="Example:\n\nCode\r\nPython"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.splitlines())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					['Example:', '', 'Code', 'Python']<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.splitlines(keepends=True))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					['Example:\n', '\n', 'Code\r\n', 'Python']<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:38">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					startswith()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns True if the string starts with a specific value<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.startswith("C"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					False<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.startswith("E"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.startswith("Ex"))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					True<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:39">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					strip()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a trimmed version of the string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;str1 = "Example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.strip(),"!")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example Code !<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt;print(str1.strip(), "")<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example Code<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:40">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					swapcase()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Swaps cases of the string. Upper case becomes lower case and 
+					vice versa<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example COde"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.swapcase())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					eXAMPLE coDE<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:41">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					title()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Changes the first letter of each word in the string to upper 
+					case<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "Example COde"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.title())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example Code<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin"><o:p>
+					&nbsp;</o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "EXAMPLE CODE"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.title())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Example Code<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:42">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					translate()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Returns a translated string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; frm = "ExampleCoding"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; to = "4025066633329"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; trans_table =str.maketrans(frm,to)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; secret_code = "Secret Code".translate(trans_table)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(secret_code)<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					S6cr6t 6336<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:43">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					upper()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Converts a string to upper case <o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "example Code"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.upper())<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					EXAMPLE CODE<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:44;mso-yfti-lastrow:yes">
+					<td style="width:111.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="149">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					zfill()<o:p></o:p></span></p>
+					</td>
+					<td style="width:110.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="147">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					Fills a specific number of 0’s at the beginning of the 
+					string<o:p></o:p></span></p>
+					</td>
+					<td style="width:229.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="305">
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "999"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.zfill(9))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					000000999<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; str1 = "-40"<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					&gt;&gt;&gt; print(str1.zfill(5))<o:p></o:p></span></p>
+					<p class="MsoNormal">
+					<span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin">
+					-0040<o:p></o:p></span></p>
+					</td>
+				</tr>
+			</table>
+			</p>
+			<p>&nbsp;</p>
+			<h1 class="auto-style6">Quiz</h1>
+			<h2 id="test_status"></h2>
+			<div id="test" style="background-color: #C0C0C0"></div>
+			<p class="auto-style7">&nbsp;</p>
+
+		</div>
+		<!-- End Left Column -->
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+		</div>
+	<div id="footer" style="width: 616px; height: 51px">
+		<p><a href="../home.html">Home</a> | <a href="../chapter1/chapter1.html">Chapter 1</a> 
+		| <a href="../chapter2/chapter2.html">Chapter 2</a> |
+		<a href="../chapter3/chapter3.html">Chapter 3</a> |
+		<a href="../chapter4/chapter4.html">Chapter 4</a> |
+		<a href="../test/test.html">Test</a> |
+		<a href="mailto:info@learnit.com">Contact us</a></p>
+		<p>Copyright &copy; 2021 Learn IT. All Rights Reserved.</p>
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+</html>

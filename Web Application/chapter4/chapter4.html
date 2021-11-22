@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Chapter 4</title>
+<!-- #EndEditable -->
+<link href="../styles/style3.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<style type="text/css">
+.auto-style3 {
+	font-size: xx-large;
+	font-family: "Lucida Console";
+}
+.auto-style4 {
+	text-align: center;
+}
+.auto-style5 {
+	text-align: center;
+	text-decoration: underline;
+}
+.auto-style6 {
+	text-decoration: underline;
+}
+.auto-style7 {
+	color: #00C500;
+}
+.auto-style8 {
+	color: red;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "This loop repeats a block of instructions and automatically assigns a variable to the current iteration.", "While Loop", "For Loop", "If Loop", "B" ],
+    [ "This statement allows us to execute a statement or group of statements multiple times.", "While Loop", "For Loop", "If Loop", "C" ],
+	[ "Which variable is correct in python?", "While Loop", "For Loop", "If Loop", "A" ],
+	[ "What is the result of the following:<br />number = 5<br />while number <= 5:<br />&nbsp;&nbsp;if number < 5:<br />&nbsp;&nbsp;&nbsp;&nbsp;number = number + 1<br />&nbsp;&nbsp;print(number)", "The program will loop indefinitely", "The value of number will be printed exactly 1 time", "The while loop will never get executed", "A" ],
+	[ "What will the following code print?<br />counter = 1<br />sum = 0<br />while counter <= 6:<br />&nbsp;&nbsp;sum = sum + counter<br /> &nbsp;&nbsp;counter = counter + 2<br />print(sum)", "12", "9", "7", "B" ],
+	[ "What will be printed by the following code when it executes?<br />sum = 0<br />values = [1,3,5,7]<br />for number in values:<br />&nbsp;&nbsp; sum = sum + number<br />print(sum)", "4", "0", "16", "C" ],
+	[ "What is the last thing printed when the following code is run?<br />number = 0<br />while number <= 10:<br />&nbsp;&nbsp;print(“Number: ”, number)<br />&nbsp;&nbsp;number = number + 1", "Number: 10", "Number: number", "Number: 0", "A" ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Quiz Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead" class="auto-style1">
+		<img alt="" height="71" src="../images/logo.jpg" width="173" /><p class="auto-style4">
+		<span class="auto-style3">LEARN IT</span><br />
+		Coding and Development&nbsp; </p>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+	<div id="navigation">
+		<ul style="width: 100%; height: 31px">
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../home.html">Home</a></li>
+			<li><a href="../chapter1/chapter1.html">Chapter 1</a></li>
+			<li><a href="../chapter2/chapter2.html">Chapter 2</a></li>
+			<li><a href="../chapter3/chapter3.html">Chapter 3</a></li>
+			<li><a href="../chapter4/chapter4.html">Chapter 4</a></li>
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../test/test.html">Test</a></li>
+			<li><a href="mailto:info@learnit.com">Contact us</a></li>
+			
+		</ul>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Page Content -->
+	<div id="page_content">
+		<!-- Begin Left Column -->
+		<div id="column_l" style="left: 0px; top: 0px; width: 588px;">
+			<h2 class="auto-style5">CHAPTER 4</h2>
+			<p>In this chapter you will learn about loops, what they are and how to use them.</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">Loops</h3>
+			<p>When coding there may be a situation when you need to execute a block of code several number of times and that where loops come in. A loop statement allows us to execute a statement or group of statements multiple times. The following diagram illustrates a loop statement.</p>
+			<p class="auto-style4"><img alt="loop_statment" height="348" src="../images/loop.jpg" width="304" /></p>
+			<p>Python programming language provides the following types of loops to handle looping requirements.</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">For Loops</h3>
+			<p>Executes a sequence of statements multiple times and abbreviates the code that manages the loop variable. A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string). This is less like the for keyword in other programming languages and works more like an iterator method as found in other object-orientated programming languages. With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.</p>
+			<p>&nbsp;</p>
+			<h4 class="auto-style6">Example:</h4>
+			<p>Print each fruit in a fruit list:</p>
+			<p>fruits = ["apple", "banana", "cherry"]<br />
+			&nbsp;&nbsp;&nbsp;
+			for x in fruits:<br />
+			&nbsp;&nbsp;&nbsp;
+			print(x)</p>
+			<p>&nbsp;</p>
+			<p>Program to find the sum of all numbers stored in a list:</p>
+			<p><span class="auto-style7"># List of numbers</span><br />
+			numbers = [6, 5, 3, 8, 4, 2, 5, 4, 11]<br />
+			<span class="auto-style7"># variable to store the sum</span><br />
+			sum = 0<br />
+			<span class="auto-style7"># iterate over the list</span><br />
+			for val in numbers:<br />
+			&nbsp;&nbsp;&nbsp;
+			sum = sum + val<br />
+			print("The sum is", sum)</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">While Loops</h3>
+			<p>The while loop in Python is used to iterate over a block of code as long as the test expression (condition) is true. We generally use this loop when we do not know the number of times to iterate beforehand. In Python, the body of the while loop is determined through indentation.</p>
+			<p>&nbsp;</p>
+			<h4 class="auto-style6">Example:</h4>
+			<p><span class="auto-style7"># Program to add natural<br />
+			# numbers up to </span> <br />
+			# sum = 1+2+3+...+n<br />
+			<span class="auto-style7"># To take input from the user</span><br />
+			n = int(input("Enter n: "))<br />
+			n = 10<br />
+			<span class="auto-style7"># initialize sum and counter</span><br />
+			sum = 0<br />
+			i = 1<br />
+			while ( i &lt;= n):<br />
+			&nbsp;&nbsp;&nbsp;
+			sum = sum + i<br />
+			&nbsp;&nbsp;&nbsp;
+			<span class="auto-style7"># update counter</span><br />
+			&nbsp;&nbsp;&nbsp;
+			i = i + 1<br />
+			<span class="auto-style7"># print the sum</span><br />
+			print("The sum is", sum)</p>
+			<p><strong>Output:</strong><br />
+			Enter n: <span class="auto-style8"><em>10</em></span><br />
+			The sum is 55</p>
+			<p>Same as with for loops, while loops can also have an optional else block.
+The else part is executed if the condition in the while loop evaluates to False.
+The while loop can be terminated with break statements. In such cases, the else part is ignored. Hence, a while loop's else part runs if no break occurs and the condition is false.</p>
+			<p>&nbsp;</p>
+			<h4 class="auto-style6">Example:</h4>
+			<p>counter = 0<br />
+			while (counter < 3):<br />
+			&nbsp;&nbsp;&nbsp;
+			print("Inside loop")<br />
+			else:<br />
+			&nbsp;&nbsp;&nbsp;
+			print("Inside else")</p>
+			<p><strong>Output:</strong><br />
+			Inside loop<br />
+			Inside loop<br />
+			Inside loop<br />
+			Inside else</p>
+			<p>&nbsp;</p>
+			<h1 class="auto-style5">Quiz</h1>
+			<h2 id="test_status"></h2>
+			<div id="test" style="background-color: #C0C0C0"></div>
+			<p>&nbsp;</p>
+		</div>
+		<!-- End Left Column -->
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer" style="width: 616px; height: 51px">
+		<p><a href="../home.html">Home</a> | <a href="../chapter1/chapter1.html">Chapter 1</a> 
+		| <a href="../chapter2/chapter2.html">Chapter 2</a> |
+		<a href="../chapter3/chapter3.html">Chapter 3</a> |
+		<a href="../chapter4/chapter4.html">Chapter 4</a> |
+		<a href="../test/test.html">Test</a> |
+		<a href="mailto:info@learnit.com">Contact us</a></p>
+		<p>Copyright &copy; 2021 Learn IT. All Rights Reserved.</p>
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+</html>

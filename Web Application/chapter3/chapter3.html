@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Chapter 3</title>
+<!-- #EndEditable -->
+<link href="../styles/style3.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<style type="text/css">
+.auto-style3 {
+	font-size: xx-large;
+	font-family: "Lucida Console";
+}
+.auto-style4 {
+	text-align: center;
+}
+.auto-style6 {
+	text-decoration: underline;
+}
+table.MsoTableGrid
+	{border:solid windowtext 1.0pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	}
+.auto-style7 {
+	text-align: center;
+	text-decoration: underline;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "What is the output of print(2 ** 3 ** 2)", "64", "512", "56", "A" ],
+    [ "What is the value of the following Python Expression <br /> print(36 / 4)", "9", "9.0", "0.9", "B" ],
+    [ "What is the output of print(10 - 4 * 2)", "2", "12", "66", "A" ],
+	[ "What is the output of print(2 * 3 ** 3 * 4)", "216", "864", "463", "A" ],
+	[ "What is the output of the expression  print(-18 // 4)", "-4", "4", "5", "B" ],
+	[ "Which of the following operators has the highest precedence?", "&", "*", "+", "B" ],
+	[ "What is the output of print(2 % 6)", "ValueError", "0.33", "2", "C" ],
+	[ "What is the output of the following: <br />y = 10<br />x = y += 2<br />print(x)", "12", "10", "SynatxError", "C" ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+		_("test_status").innerHTML = "Quiz Completed";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead" class="auto-style1">
+		<img alt="" height="71" src="../images/logo.jpg" width="173" /><p class="auto-style4">
+		<span class="auto-style3">LEARN IT</span><br />
+		Coding and Development&nbsp; </p>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+	<div id="navigation">
+		<ul style="width: 100%; height: 31px">
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../home.html">Home</a></li>
+			<li><a href="../chapter1/chapter1.html">Chapter 1</a></li>
+			<li><a href="../chapter2/chapter2.html">Chapter 2</a></li>
+			<li><a href="../chapter3/chapter3.html">Chapter 3</a></li>
+			<li><a href="../chapter4/chapter4.html">Chapter 4</a></li>
+			<li style="width: 61px; height: 30px" class="auto-style4">
+			<a href="../test/test.html">Test</a></li>
+			<li><a href="mailto:info@learnit.com">Contact us</a></li>
+			
+		</ul>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Page Content -->
+	<div id="page_content">
+		<!-- Begin Left Column -->
+		<div id="column_l" style="left: 0px; top: 0px; width: 584px;">
+			<h2 class="auto-style7">CHAPTER 3</h2>
+			<p>In this chapter you will learn what Arithmetic and Comparison operators are and how they are implemented.</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">Python Operators</h3>
+			<p>Operators are special symbols in python that carry out arithmetic or logical computation. Python divides operators into different groups,we will focus on 3 python operators:</p>
+			<p>1.	Arithmetic operators<br />2.	Assignment operators<br />3.	Comparison operators</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">Arithmetic Operators</h3>
+			<p>Arithmetic operators are used with numeric values to perform 
+			common mathematical operations. Here is a table of arithmetic 
+			operators:</p>
+			<p>
+			<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+				<tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Operator name<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:113.2pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Operator<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:121.35pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Explanation<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:93.0pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Example<o:p></o:p></span></b></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:1">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Addition<o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">+<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Add two 
+					operands<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">3 + 4<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:2">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">
+					Subtraction<o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">-<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Subtract 
+					second operand from the first<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">5 - 2<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:3">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">
+					Multiplication<o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">*<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">
+					Multiplies both operands<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">8 * 8<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:4">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Division <o:p></o:p>
+					</span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">/<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Divides 
+					numerator by denominator<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">20 / 10<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:5">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Modulus<o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">%<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Computes 
+					the remainder of dividing first operand by second operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">61 % 10<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:6">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">
+					Exponential <o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">**<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Performs 
+					exponential (power) calculation on operands<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">2 ** 2<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:7;mso-yfti-lastrow:yes">
+					<td style="width:123.25pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="164">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Floor 
+					division <o:p></o:p></span></p>
+					</td>
+					<td style="width:113.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="151">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">//<o:p></o:p></span></p>
+					</td>
+					<td style="width:121.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="162">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">The 
+					division operand where the results is the quotient in which 
+					digits after the decimal point are removed ,but if one of 
+					the operands is negative the result is rounded away from 
+					zero<o:p></o:p></span></p>
+					</td>
+					<td style="width:93.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="124">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">50 // 10<o:p></o:p></span></p>
+					</td>
+				</tr>
+			</table>
+			</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">Comparison Operators</h3>
+			<p>Comparison operators are used to compare values .It returns either true or false according to their condition. Here is a list of comparison operators:</p>
+			<p>
+			<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid">
+				<tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Operator name<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Operator<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Explanation<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Example<o:p></o:p></span></b></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:1">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Greater 
+					Than<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">&gt;<o:p>&nbsp;</o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					left operand is greater than right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">5 &gt; 2<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:2">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Less Than <o:p></o:p>
+					</span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">&lt;<o:p>&nbsp;</o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					left operand is less than the right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">12 &lt; 32<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:3">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Equal To<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">==<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					both operands are equal<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">44 == 44<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:4">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Greater 
+					Than or Equal To<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">&gt;=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					left operand is greater than or equal to the right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					12 &gt;= 42</p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:5">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Less Than 
+					or Equal To<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">&lt;=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					left operand is less than or equal to the right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					67 &lt;= 3</p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">Not Equal 
+					To<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">!=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">True if 
+					left operand is not equal to right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">2 != 3<o:p></o:p></span></p>
+					</td>
+				</tr>
+			</table>
+			</p>
+			<p>&nbsp;</p>
+			<h3 class="auto-style6">Assignment Operators</h3>
+			<p>Assignment operators are used to assign values to variables. These operators can be numeric, date, system, time, and text. Here is a table of assignment operators:</p>
+			<p>
+			<table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid">
+				<tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Operator<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Explanation<o:p></o:p></span></b></p>
+					</td>
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">
+					<span lang="EN-US" style="mso-ansi-language:
+  EN-US">Example<o:p></o:p></span></b></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:1;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">+ =<span style="mso-spacerun:yes">&nbsp;&nbsp;
+					</span><o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator adds the right operand to the left operand and 
+					stores the results in the left operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X += 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:2;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">- =<span style="mso-spacerun:yes">&nbsp;
+					</span><o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator subtract the right operand from the left operand 
+					stores the result in the left operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X -= 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:3;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">* =<span style="mso-spacerun:yes">&nbsp;&nbsp;
+					</span><o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator multiplies the right operand with the left operand<span style="mso-spacerun:yes">&nbsp;
+					</span>storing the results in the right operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X *= 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:4;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">/=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator divides the left operand by the right operand 
+					,storing the results in the left operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X /= 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:5;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">%=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator takes the module of the left operand ,using the 
+					right operand and stores the results in the left operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X %= 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+				<tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;height:3.9pt">
+					<td style="width:112.7pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">**=<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">This 
+					operator raises the exponential power of the left operand to 
+					the value of the right operand<span style="mso-spacerun:yes">&nbsp;
+					</span>and stores the results in the left operand<o:p></o:p></span></p>
+					</td>
+					<td style="width:112.7pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.9pt" valign="top" width="150">
+					<p class="MsoNormal">
+					<span lang="EN-US" style="mso-ansi-language:EN-US">X **= 5<o:p></o:p></span></p>
+					</td>
+				</tr>
+			</table>
+			</p>
+			<p>&nbsp;</p>
+			<h1 class="auto-style7">Quiz</h1>
+			<h2 id="test_status"></h2>
+			<div id="test" style="background-color: #C0C0C0"></div>
+			<p>&nbsp;</p>
+			</div>
+		<!-- End Left Column -->
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer" style="width: 616px; height: 51px">
+		<p><a href="../home.html">Home</a> | <a href="../chapter1/chapter1.html">Chapter 1</a> 
+		| <a href="../chapter2/chapter2.html">Chapter 2</a> |
+		<a href="../chapter3/chapter3.html">Chapter 3</a> |
+		<a href="../chapter4/chapter4.html">Chapter 4</a> |
+		<a href="../test/test.html">Test</a> |
+		<a href="mailto:info@learnit.com">Contact us</a></p>
+		<p>Copyright &copy; 2021 Learn IT. All Rights Reserved.</p>
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+</html>
